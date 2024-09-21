@@ -29,4 +29,3 @@ begin
 
   Plot(_media);
 end;
-
