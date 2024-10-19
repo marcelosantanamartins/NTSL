@@ -16,17 +16,18 @@ begin
   compra := (tb31 < tb32) and (tb21 < tb22) and (me < me[3]) and ((ifr(9) < ifr(9)[1])) and (ifr(9) < 50);
   
   if (time > 905) and (time < 1735) and (buyposition = 0) and (sellposition = 0) then
-    inicio
-      se compra then
+    begin
+      if compra then
         BuyStop(close,close);
-      se venda then
+      if venda then
         SellShortstop(CLOSE,CLOSE);
-      se venda then
+      if venda then
         paintbar(clred);
-      se compra then
+     if compra then
         paintbar(clverde);
     end;
-  /////////////////////////////////////////////////////////
+
+
   if (sellposition = 1) then
     PaintBar(clred);
   if (buyposition = 1) then
@@ -46,8 +47,3 @@ begin
   se time > 1736 then
     closeposition;
 end;
-
-
-
-
-
